@@ -5,7 +5,7 @@ describe('Testes da função HandlerElephants', () => {
     expect(handlerElephants()).toEqual(undefined);
   });
   it('Retorna menssagem de erro se o que for passaso seja diferente de uma string', () => {
-    expect(handlerElephants(true)).toEqual('Parâmetro inválido, é necessário uma string');
+    expect(handlerElephants({})).toEqual('Parâmetro inválido, é necessário uma string');
   });
   it('Retornar um número inteiro para a quantia de residentes', () => {
     expect(handlerElephants('count')).toEqual(4);
@@ -24,5 +24,8 @@ describe('Testes da função HandlerElephants', () => {
   });
   it('Retornar um array dos dias da samena que os residentes estão disponíveis', () => {
     expect(handlerElephants('availability')).toEqual(['Friday', 'Saturday', 'Sunday', 'Tuesday']);
+  });
+  it('Retornar null caso a string passada não contempla uma funcionalidade', () => {
+    expect(handlerElephants('invalid')).toEqual(null);
   });
 });
